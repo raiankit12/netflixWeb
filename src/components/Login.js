@@ -37,7 +37,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: "rgba(0, 0, 0, 0.9)",
   color: "black",
   // width: "80%",
-  height: "48%",
+  height: "50%",
   maxWidth: 350,
   // paddingTop:'30px'
   [theme.breakpoints.down("md")]:
@@ -163,7 +163,8 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + " " + errorMessage);
+          // setErrorMessage(errorCode + " " + errorMessage);
+          setErrorMessage("Password is incorrect.Please enter the correct password.")
         });
     }
 
@@ -386,7 +387,7 @@ const Login = () => {
               </Button>
               <Typography
                 onClick={toggleSignupform}
-                sx={{ color: "white", marginTop: "15px", cursor: "pointer" }}
+                sx={{ color: "white", marginTop: "1px", cursor: "pointer" }}
               >
                 {IsSignInform
                   ? "New to Netflix? Sign up now"
