@@ -17,7 +17,7 @@ export const checkValidData=(email,password)=>
     const isEmailValid= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
     console.log(isEmailValid)
     //  if(isEmailValid==='') return "Please enter the email-id"
-     if(!isEmailValid) return "Email ID is not valid. Please include '@' and ensure the format is correct (e.g., user@example.com)";
+     if(!isEmailValid) return "Email ID is not valid. Please include '@'(e.g., user@example.com)";
    
 
     if(!isPasswordValid) return "Password is not valid. Please include at least one special character"
