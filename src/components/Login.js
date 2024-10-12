@@ -14,6 +14,7 @@ import { useState, useRef } from "react";
 import { checkValidData } from "../utils/Validate";
 import {
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
@@ -93,6 +94,7 @@ const Login = () => {
 
   const [IsSignInform, setSignInform] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [resetEmailSent, setResetEmailSent] = useState(false);
 
   const name = useRef(null);
 
@@ -106,6 +108,21 @@ const Login = () => {
     setSignInform(!IsSignInform);
   };
 
+ const handleReset = ()=>{
+  const userEmail = email.current.value;
+    if (!userEmail) {
+      setErrorMessage("Please enter your email address.");
+      return;
+    }
+    sendPasswordResetEmail(auth, userEmail)
+      .then(() => {
+        setResetEmailSent(true);
+        setErrorMessage(null);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message || "Failed to send reset email.");
+      });
+ }
   const handleBtn = () => {
     // const emailValue = email.current.value;
     // const passwordValue = password.current.value;
@@ -145,9 +162,10 @@ const Login = () => {
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
+          // const errorCode = error.code;
+          const errorMessage = error.message="this email user id already exist";
+          // setErrorMessage(errorCode + "-" + errorMessage);
+          setErrorMessage("this email user id already exist");
         });
     } else {
       signInWithEmailAndPassword(
@@ -157,7 +175,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          console.log("user",user);
           // navigate("/Browse");
         })
         .catch((error) => {
@@ -369,6 +387,7 @@ const Login = () => {
                 }}
               />
               <Typography sx={{ color: "red" }}> {errorMessage}</Typography>
+              {resetEmailSent && (<Typography sx={{ color: "red" }}> {errorMessage}</Typography>)}
               <Button
                 onClick={handleBtn}
                 variant="contained"
@@ -387,12 +406,14 @@ const Login = () => {
               </Button>
               <Typography
                 onClick={toggleSignupform}
-                sx={{ color: "white", marginTop: "1px", cursor: "pointer" }}
+                sx={{ color: "white", marginTop: "1px", cursor: "pointer", marginLeft:"1rem"}}
               >
                 {IsSignInform
                   ? "New to Netflix? Sign up now"
                   : "Already registered? Sign In"}
               </Typography>
+
+              <Typography onClick={handleReset} sx={{ color: "white", cursor: "pointer",marginLeft:"4rem",marginTop:'2rem'}}>Forget password?</Typography>
             </FormGroup>
           </form>
         </FormControl>
