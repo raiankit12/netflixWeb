@@ -181,7 +181,7 @@ const Login = () => {
     }}
     >
       <Header />
-      <Box sx={{ overflow:{ lg:"hidden"} }}>
+      <Box sx={{ overflow:{ lg:"hidden"} ,position:{xs:"fixed",md:"static"}}}>
         <img src={bgImg} alt="background" />
       </Box>
 
