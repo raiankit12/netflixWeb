@@ -17,7 +17,7 @@ const GptSearch = () => {
 
   const handleSearch = async () => {
     if (!search) {
-      alert("Please enter what would ou like to watch.");
+      alert("Please enter what would you like to watch.");
       return;
     }
 

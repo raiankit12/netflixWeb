@@ -9,7 +9,7 @@ export const SecondaryContainer = () => {
   
   console.log(topRatedMovies);
   return (
-    <Box sx={{positon:"relative",backgroundColor:"black",justifyContent:"space-between"}}>
+    <Box sx={{positon:"relative",backgroundColor:"black",justifyContent:"space-between",marginTop:"-150px"}}>
       <MovieList title="Now Playing" movies={nowplayingMovies} />
       <MovieList title="Popular" movies={popularMovies}/>
       <MovieList title="Top Rated" movies={topRatedMovies}/>

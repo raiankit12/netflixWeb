@@ -15,6 +15,8 @@ import { logo, Suported_language } from "../utils/constants";
 import styled from "@emotion/styled";
 import { showGptSearch } from "../utils/gptSlice";
 import { toggleLang } from "../utils/configSlice";
+import SearchIcon from "@mui/icons-material/Search";
+
 // const GptComp=styled(Box)
 
 export const CustomButton = styled(Button)(({ theme, bgColor }) => ({
@@ -106,7 +108,7 @@ const Header = () => {
         },
         left: {
           md: "0px",
-          xs: "-59px",
+          xs: "-28px",
         },
         right: 0,
         display: "flex",
@@ -157,7 +159,8 @@ const Header = () => {
             bgColor="blue"
             sx={{ marginRight: {md:"25px",xs:"4px"} }}
           >
-            {GptSearch ? "Home" : "Search"}
+            {GptSearch ? "Home" : 
+            <SearchIcon/>}
           </CustomButton>
           <img
             src={user?.photoURL}
@@ -166,7 +169,7 @@ const Header = () => {
               width:{md:"40px",xs:"38px"},
               height: {md:"25px",xs:"38px"},
               borderRadius: "50%",
-              marginRight:"7px",
+              marginRight:"20px",
               padding: {md:"10px",xs:"0px"},
             }}
           />

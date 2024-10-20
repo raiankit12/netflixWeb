@@ -34,7 +34,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   paddingLeft: "32px",
   paddingRight: "32px",
   // marginBottom: "50px",
-  paddingTop: "12px",
+  // paddingTop: "-10px",
   backgroundColor: "rgba(0, 0, 0, 0.9)",
   color: "black",
   // width: "80%",
@@ -48,44 +48,24 @@ const StyledBox = styled(Box)(({ theme }) => ({
   },
   [theme.breakpoints.between("xs","sm")]: 
     {
+
       position: "absolute",
-      top: "484px",
-      left: "40%",
+      top: "420px",
+      // height:"83%",
+      left: "36.5%",
       justifyItems: "center",
-      borderRadius: "20px",
+      borderRadius: "0px",
       transform: "translate(-36%, -73%)",
-      
-      
-      /* padding-left: 36px; */
-      /* padding-right: 32px; */
-      /* padding-top: 12px; */
+      paddingTop: "7rem",
+      // paddingRight: "0px",
       backgroundColor: "rgba(0, 0, 0, 0.9)",
       color: "black",
-      height: "549px",
-      width: "252px"
+      height: "540px",
+      width: "452px"
   
   },
 
-  // [theme.breakpoints.up("md")]: {
-  //   maxWidth: "60%", // 60% width for medium screens
-  //   top: "40%", // Adjust top for medium screens
-  //   paddingLeft: "32px",
-  //   paddingRight: "32px",
-  // },
-
-  // [theme.breakpoints.up("lg")]: {
-  //   maxWidth: "50%", // 50% width for large screens
-  //   top: "45%", // Adjust top for large screens
-  //   paddingLeft: "40px",
-  //   paddingRight: "40px",
-  // },
-
-  // [theme.breakpoints.up("xl")]: {
-  //   maxWidth: "40%", // 40% width for extra-large screens
-  //   top: "50%", // Adjust top for extra-large screens
-  //   paddingLeft: "50px",
-  //   paddingRight: "50px",
-  // },
+  
   
 }));
 
@@ -201,11 +181,11 @@ const Login = () => {
     }}
     >
       <Header />
-      <Box sx={{ overflow: "hidden" }}>
+      <Box sx={{ overflow:{ lg:"hidden"} }}>
         <img src={bgImg} alt="background" />
       </Box>
 
-      <StyledBox>
+      <StyledBox >
         <FormControl component="fieldset" sx={{top:{
           // xs:"50px",
           // sm:"20px"
@@ -218,6 +198,7 @@ const Login = () => {
                   paddingY: "5px",
                   fontWeight: "bold",
                   fontSize: "35px",
+                  // paddingTop:{xs:"-20px"}
                 }}
               >
                 {IsSignInform ? "Sign In" : "Sign Up"}
@@ -264,8 +245,8 @@ const Login = () => {
                         sm: 'top',
                       },
                       width: {
-                        xs: '259px',
-                        sm: '259px',
+                        xs: '300px',
+                        sm: '300px',
                         md:'340px',
                       },
                       backgroundColor: {
@@ -281,8 +262,9 @@ const Login = () => {
                         sm: '25px',
                       },
                       marginBottom: {
-                        xs: '25px',
-                        sm: '25px',
+                        xs: '5px',
+                        sm: '5px',
+                        md:'20px'
                       },
                       borderRadius: {
                         xs: '10px',
@@ -313,21 +295,26 @@ const Login = () => {
               <TextField
                 inputRef={email}
                 type="text"
-                placeholder="Email or Mobile number"
+                placeholder="Email"
                 variant="outlined"
                 fullWidth
                 sx={{
                   backgroundColor: "rgba(0, 0, 0, 0.4)",
                   color: "white",
                   // width: "340px",
-                  marginY: "25px",
+                  marginY:"25px",
                   borderRadius: "10px",
                   // sx={{
                     
                     width: {
-                      xs: '259px',
-                      sm: '259px',
+                      xs: '300px',
+                      sm: '300px',
                       md:'340px',
+                    },
+                    marginBottom: {
+                      xs: '5px',
+                      sm: '5px',
+                       md:'20px'
                     },
                    
                    
@@ -363,8 +350,8 @@ const Login = () => {
                   marginY: "25px",
                   borderRadius: "10px",
                   width: {
-                    xs: '259px',
-                    sm: '259px',
+                    xs: '300px',
+                    sm: '300px',
                     md:'340px',
                   },
                   "& .MuiOutlinedInput-root": {
@@ -395,10 +382,15 @@ const Login = () => {
                   backgroundColor: "red",
                   height: "60px",
                   fontSize: "25px",
-                  marginY: "20px",
+                  marginY: {sm:"0px",md:"20px"},
                   borderRadius: "10px",
                   "&:hover": {
                     backgroundColor: "red",
+                  },
+                  marginBottom: {
+                    xs: '15px',
+                    sm: '15px',
+                     md:'20px'
                   },
                 }}
               >
@@ -413,7 +405,7 @@ const Login = () => {
                   : "Already registered? Sign In"}
               </Typography>
 
-              <Typography onClick={handleReset} sx={{ color: "white", cursor: "pointer",marginLeft:"4rem",marginTop:'2rem'}}>Forget password?</Typography>
+              <Typography onClick={handleReset} sx={{ color: "white", cursor: "pointer",marginLeft:"4rem",marginTop:'1rem'}}>Forget password?</Typography>
             </FormGroup>
           </form>
         </FormControl>

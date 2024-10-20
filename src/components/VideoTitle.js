@@ -38,8 +38,8 @@ export const VideoTitle = (props) => {
           
         </DialogActions>
       </Dialog>
-    <Typography variant="h2" sx={{color:'white',width:{md:"40%",xs:"100%"}}}  >{props.title}</Typography>
-    <Typography sx={{color:'white',fontSize:"18px",width:{md:"45%",xs:"100%"}}} >{props.overview}</Typography>
+    <Typography variant="h2" sx={{color:'white',width:{md:"40%",xs:"90%"}}}  >{props.title}</Typography>
+    <Typography sx={{color:'white',fontSize:"18px",width:{md:"45%",xs:"80%"}}} >{props.overview}</Typography>
     
     <Box sx={{marginTop:"2rem"}}>
         <Button variant='contained' sx={{width:"5.5rem",color:"black",background:"white",'&:hover':{background:"grey"}}} >▶ Play</Button>

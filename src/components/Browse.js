@@ -25,10 +25,10 @@ const Browse = () => {
         <GptSearch />
       ) : (
         <>
-        {/* <Box sx={{overflow:"hidden",postion:"relative"}}> */}
+     
           <MainContainer />
           <SecondaryContainer />
-          {/* </Box> */}
+         
         </>
       )}
     </Box>
